@@ -1,11 +1,18 @@
+/*------------------------------------------------------------------------------------------------------------
+ 
+ Environment : Postgres - SQL Query
+
+------------------------------------------------------------------------------------------------------------*/
+
+
 -- Number of bookings where atleast one night falls on 2015-02-21
 
 select 
 	sum(case 
-			when '2015-02-21'::date between checkin_date and (checkin_date + cast(nights || 'days' as interval)) 
-			then 1 
-			else 0 
-		end) 
+		when '2015-02-21'::date between checkin_date and (checkin_date + cast(nights || 'days' as interval)) 
+		then 1 
+		else 0 
+	end) 
 from bookings
 ;
 
